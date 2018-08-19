@@ -19,26 +19,19 @@
 
     <div class="row">
         <div class="col-md-8 ">
-            <div class="post">
-                <h3>Post Title</h3>
-                <p> This is the blog post</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Read more</a>
-            </div>
-            <hr>
 
-        <div class="post">
-                <h3>Post Title</h3>
-                <p> This is the blog post</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Read more</a>
-            </div>
-            <hr>
+            @foreach ($post as $posts)
+                <div class="post">        
+                <h3>{{ $posts->title}}</h3>
+                <p> {{ substr($posts-> body, 0, 300)}}</p>
+                <a href="#" class="btn btn-primary">Read more</a>
+                <hr>
+            </div>   
+            @endforeach
+        
+            
 
-        <div class="post">
-                <h3>Post Title</h3>
-                <p> This is the blog post</p>
-                <a class="btn btn-primary btn-lg" href="#" role="button">Read more</a>
-        </div>
-            <hr>
+    
 
         </div>
         <div class="col-md-3 col-md-offset-1">
