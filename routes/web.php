@@ -10,13 +10,12 @@
 | contains the "web" middleware group. Now create something great!
 |
 */
-//landing page
-Route::view('/','pages.login');
+
 
 //Redirecting to pages
 Route::get('contact','PagesController@getContact');
 Route::get('about','PagesController@getAbout');
-Route::get('home','PagesController@getIndex');
+Route::get('/','PagesController@getIndex');
 
 
 //Post Controller Route
