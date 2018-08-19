@@ -23,9 +23,9 @@
             @foreach ($post as $posts)
                 <div class="post">        
                 <h3>{{ $posts->title}}</h3>
-                <p> {{ substr($posts-> body, 0, 300)}}</p>
+                <p> {{ substr($posts-> body, 0, 300)}} {{strlen($posts->body) > 300 ? "..." : "" }}</p>
                 <a href="#" class="btn btn-primary">Read more</a>
-                <hr>
+                 <hr>
             </div>   
             @endforeach
         
@@ -38,5 +38,6 @@
             <p> Side Bar Created!</p>
 
         </div>
+        <hr>
 </div>
 @endsection
