@@ -13,6 +13,9 @@
 
 
 //Redirecting to pages
+Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])
+->where('slug','[\w\d\-\_]+');
+
 Route::get('contact','PagesController@getContact');
 Route::get('about','PagesController@getAbout');
 Route::get('/','PagesController@getIndex');
@@ -20,3 +23,7 @@ Route::get('/','PagesController@getIndex');
 
 //Post Controller Route
 Route::resource('post','PostController');
+
+
+//Blog Controller Route
+ Route::get('blog', 'BlogController@getIndex');
