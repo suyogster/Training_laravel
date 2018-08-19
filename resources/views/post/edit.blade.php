@@ -14,7 +14,7 @@
 
             {{Form::label('body', "Body: ")}}
             {{Form::textarea('body', null, ['class' => 'form-control'])}}
-            {!! Form::close() !!}
+
         </div>
    
     
