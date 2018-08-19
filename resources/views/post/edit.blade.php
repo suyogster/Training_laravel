@@ -5,13 +5,13 @@
 @section('content')
 
 <div class="row">
-
-    {!! Form::model($post, array['route' => ['post.update', $post->id]]) !!}
-
+    {!! Form::model($post, ['route' => ['post.update', $post->id]]) !!}
     <div class="col-md-8">
+        {{Form::label('title','Title: ')}}
+        {{Form::text('title', null, ['class' => 'form-control']) }}
 
-        {{Form::text('title', null,array['class' => 'form-control'])}}
-        {{Form::textarea('body', ['class' => 'form-control'])}}
+        {{Form::label('body','Body: ')}}
+        {{Form::textarea('body',null, ['class' => 'form-control']) }}
 
 
     <h1>{{ $post->title }}</h1>
