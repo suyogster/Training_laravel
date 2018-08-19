@@ -39,15 +39,22 @@ class PostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {
+    {   
+        $post = Post::find($id);
+        //validate slug and other data
+            if($request->input('slug') == $post->slug){
+                $this->validate($request, array(
+                'title' => 'required|max:255',
+                'body' => 'required',
+                ));
+            }else{
         //Firstly we need to validate the data
-
         $this->validate($request, array(
             'title' => 'required|max:255',
-            'slug' => 'required|alpha_dash|min:5|max:255',
+            'slug' => 'required|alpha_dash|min:5|max:255,unique:posts,slug',
             'body' => 'required',
         ));
-
+            }
         //store to the database
 
         $post = new Post;
