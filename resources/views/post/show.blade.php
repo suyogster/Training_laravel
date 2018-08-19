@@ -38,18 +38,14 @@
 
                 </div>
             </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <br>
+                    {{Html::linkRoute('post.index', 'See all the Posts', [], ['class' => 'btn btn-lg btn-block'])}}
+                </div>
+            </div>
         </div>
     </div> <!-- end of the row -->
 
-        <div class="col-md-12">
-             <hr>
-
-        </div>
-    </div>
-
-    <div class="row">
-        <div class="col-md-12">
-
-        </div>
-    </div>
 @endsection
