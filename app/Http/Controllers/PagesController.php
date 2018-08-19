@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Post;
+
 class PagesController extends Controller{
 
 
@@ -13,7 +15,8 @@ class PagesController extends Controller{
 
     public function getIndex(){
 
-        return view('pages.welcome');
+        $post = Post::orderby('created_at', 'desc')->limit(3)->get();
+        return view('pages.welcome')->withPost($post);
 
     }
 

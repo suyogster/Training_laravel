@@ -42,8 +42,16 @@
                     </tr>    
                     @endforeach
                 </tbody>
-                
             </table>
+
+                <div class="text-center">
+                        <p> {!! $post->links(); !!} </p>
+                        <p> Current Page: {!! $post->currentpage(); !!}
+                        
+
+                    </div>
+               
         </div>
     </div>
+  
     @endsection
