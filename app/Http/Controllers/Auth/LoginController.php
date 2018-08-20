@@ -84,10 +84,5 @@ class LoginController extends Controller
             $this->username() => "required|exists:users,{$field},active," . User::ACTIVE,
             'password' => 'required',
         ], $messages);
-    }
-
-    public function getLogin(){
-
-        return view('auth.login');
-    }
+    }   
 }
