@@ -12,7 +12,7 @@
 */
 
 //Authentication Routes
-   
+Auth::routes();
 
 
 //Redirecting to pages
