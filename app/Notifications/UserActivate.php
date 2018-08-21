@@ -3,9 +3,8 @@
 namespace App\Notifications;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Notifications\Notification;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Notifications\Messages\MailMessage;
+use Illuminate\Notifications\Notification;
 
 class UserActivate extends Notification
 {
@@ -14,11 +13,11 @@ class UserActivate extends Notification
     /**
      * Create a new notification instance.
      *
+     * @param $user
      * @return void
      */
-    public function __construct()
+    public function __construct($user)
     {
-        //
         $this->user = $user;
     }
 
@@ -41,14 +40,13 @@ class UserActivate extends Notification
      */
     public function toMail($notifiable)
     {
-    
         return (new MailMessage)
-        ->from(env('ADMIN_MAIL_ADDRESS'))
-        ->subject('Activate Account!')
-        ->greeting(sprintf('Hi, %s', $this->user->name))
-        ->line('We just noticed that you created a new account. You will need to activate your account to sign in into this account.')
-        ->action('Activate', route('activate', [$this->user->token]))
-        ->line('Thank you for using our application!');
+            ->from(env('MAIL_USERNAME'))
+            ->subject('Activate Account!')
+            ->greeting(sprintf('Hi, %s', $this->user->name))
+            ->line('We just noticed that you created a new account. You will need to activate your account to sign in into this account.')
+            ->action('Activate', route('activate', [$this->user->token]))
+            ->line('Thank you for using our application!');
     }
 
     /**

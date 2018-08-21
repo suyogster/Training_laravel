@@ -11,8 +11,6 @@
 |
 */
 
-//Authentication Routes
-Auth::routes();
 
 
 //Redirecting to pages
@@ -30,3 +28,14 @@ Auth::routes();
     Route::get('blog/{slug}', ['as' => 'blog.single', 'uses' => 'BlogController@getSingle'])
     ->where('slug','[\w\d\-\_]+');
  
+
+Auth::routes();
+
+Route::get('activate/{token}', 'Auth\RegisterController@activate')
+    ->name('activate');
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
